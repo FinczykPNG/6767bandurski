@@ -1,0 +1,246 @@
+/* Import minimalistycznego fontu i reset */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #111111; 
+    color: #FFFFFF; 
+    transition: background-color 0.1s linear; 
+}
+
+/* --- STYL DESIGNERSKI (DARK MODE) --- */
+
+.prof-container {
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+    border-bottom: 1px solid #333333; 
+    
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #BBBBBB;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #FFFFFF;
+}
+
+.main-content {
+    padding: 60px;
+    flex-grow: 1;
+}
+
+.hero {
+    max-width: 900px;
+    margin: 80px auto 120px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #AAAAAA;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.cta-btn {
+    padding: 12px 30px;
+    background-color: #FFFFFF;
+    color: #111111;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-btn:hover {
+    background-color: #EEEEEE;
+    transform: translateY(-2px);
+}
+
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #222222; 
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.counter-display {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.secret-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #333;
+    border: none;
+    color: red; 
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 101;
+}
+
+/* --- STYLE CHAOSU I ANIMACJI PRZYCISKU STOP --- */
+
+/* Animacja dla przycisku "Zatrzymaj to szaleństwo" */
+@keyframes flyAround {
+  0%   { top: 5%; left: 5%; transform: scale(1) rotate(0deg); }
+  15%  { top: 95%; left: 75%; transform: scale(1.1) rotate(15deg); } 
+  30%  { top: 10%; left: 90%; transform: scale(0.9) rotate(-10deg); }
+  45%  { top: 80%; left: 5%; transform: scale(1.2) rotate(20deg); }
+  60%  { top: 20%; left: 50%; transform: scale(1.15) rotate(-5deg); }
+  75%  { top: 60%; left: 95%; transform: scale(1) rotate(10deg); }
+  90%  { top: 10%; left: 20%; transform: scale(1.05) rotate(-15deg); }
+  100% { top: 5%; left: 5%; transform: scale(1) rotate(0deg); }
+}
+
+.btn-stop-chaos {
+    position: absolute; 
+    padding: 10px 15px; /* MAŁY KAWAŁEK */
+    background: #fff;
+    color: #ff0000;
+    border: none;
+    font-weight: 900;
+    font-size: 1rem; /* MAŁY ROZMIAR CZCIONKI */
+    cursor: pointer;
+    z-index: 10001;
+    animation: flyAround 0.8s infinite ease-in-out; /* MEGA SZYBKA ANIMACJA */
+}
+
+/* Reszta stylów Chaosu */
+.chaos-background {
+  animation: rgbStrobe 0.1s infinite; 
+}
+
+@keyframes rgbStrobe {
+  0% { background-color: red; }
+  15% { background-color: orange; }
+  30% { background-color: yellow; }
+  45% { background-color: green; }
+  60% { background-color: blue; }
+  75% { background-color: indigo; }
+  90% { background-color: violet; }
+  100% { background-color: red; }
+}
+
+.chaos-mode {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white; 
+}
+
+.disclaimer-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    z-index: 10001;
+}
+
+.meme-gif {
+  width: 450px; 
+  border: 10px solid yellow;
+  box-shadow: 0 0 30px black;
+  animation: spinShake 0.2s infinite linear; 
+  margin: 40px 0;
+}
+
+.chaos-text {
+  font-size: 7rem;
+  font-weight: 900;
+  text-shadow: 8px 8px 0px #000;
+  animation: bounceText 0.15s infinite;
+  text-align: center;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+@keyframes spinShake {
+  0% { transform: translate(5px, 5px) rotate(0deg); }
+  25% { transform: translate(-5px, -5px) rotate(10deg) scale(1.1); }
+  50% { transform: translate(5px, -5px) rotate(-10deg) scale(0.9); }
+  75% { transform: translate(-5px, 5px) rotate(10deg) scale(1.2); }
+  100% { transform: translate(5px, 5px) rotate(0deg); }
+}
+
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
